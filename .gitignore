@@ -1,0 +1,28 @@
+# Local capture, environments, renders and native projects
+Footage/
+Lighting/
+Models/
+water-cache/
+.scratch/
+.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+*.aep
+*.aepx
+*.mov
+*.mp4
+*.mkv
+*.hdr
+*.exr
+*.zip
+*.log
+.env
+.env.*
+Water/water-particles.bin
+scene/layout.json
+scene/camera_ae.json
+scene/stabilize.json
+.DS_Store
+Thumbs.db
+*.aep Logs/

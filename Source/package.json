@@ -1,0 +1,11 @@
+{
+  "name": "everyday-field-set",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node build.mjs" },
+  "dependencies": {
+    "@napi-rs/canvas": "0.1.80",
+    "three": "0.180.0",
+    "gltf-validator": "2.0.0-dev.3.10"
+  }
+}

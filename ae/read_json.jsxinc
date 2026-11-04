@@ -1,0 +1,77 @@
+/* ES3 fallback for installations of ExtendScript without a native JSON parser. */
+function driftReadJSON(file) {
+    file.encoding = "UTF-8";
+    if (!file.open("r")) throw Error("Cannot open " + file.name);
+    var data;
+    try { data = file.read(); } finally { file.close(); }
+    data = data.replace(/^\uFEFF/, "");
+    if (typeof JSON !== "undefined" && typeof JSON.parse === "function") return JSON.parse(data);
+    var at = 0;
+    function invalid() { throw Error("Invalid JSON in " + file.name + " at character " + at); }
+    function skip() { while (at < data.length && /[ \t\r\n]/.test(data.charAt(at))) at++; }
+    function stringToken() {
+        if (data.charAt(at++) !== '"') invalid();
+        var output = "", escapes = {'"':'"', "\\":"\\", "/":"/", b:"\b", f:"\f", n:"\n", r:"\r", t:"\t"};
+        while (at < data.length) {
+            var ch = data.charAt(at++);
+            if (ch === '"') return output;
+            if (ch.charCodeAt(0) < 32) invalid();
+            if (ch === "\\") {
+                ch = data.charAt(at++);
+                if (ch === "u") {
+                    var code = data.substr(at, 4);
+                    if (!/^[0-9a-fA-F]{4}$/.test(code)) invalid();
+                    ch = String.fromCharCode(parseInt(code, 16));
+                    at += 4;
+                } else {
+                    if (!escapes.hasOwnProperty(ch)) invalid();
+                    ch = escapes[ch];
+                }
+            }
+            output += ch;
+        }
+        invalid();
+    }
+    function value() {
+        skip();
+        var ch = data.charAt(at), obj, key;
+        if (ch === '"') return stringToken();
+        if (ch === "[" || ch === "{") {
+            var array = ch === "[", end = array ? "]" : "}";
+            obj = array ? [] : {};
+            at++;
+            skip();
+            if (data.charAt(at) === end) { at++; return obj; }
+            while (true) {
+                if (array) {
+                    obj.push(value());
+                } else {
+                    skip();
+                    key = stringToken();
+                    if (key === "__proto__" || key === "constructor" || key === "prototype") invalid();
+                    skip();
+                    if (data.charAt(at++) !== ":") invalid();
+                    obj[key] = value();
+                }
+                skip();
+                ch = data.charAt(at++);
+                if (ch === end) return obj;
+                if (ch !== ",") invalid();
+            }
+        }
+        var start = at;
+        while (at < data.length && /[a-z0-9E+.\-]/i.test(data.charAt(at))) at++;
+        var token = data.substring(start, at);
+        if (token === "true") return true;
+        if (token === "false") return false;
+        if (token === "null") return null;
+        if (!/^-?(0|[1-9]\d*)(\.\d+)?([eE][+-]?\d+)?$/.test(token)) invalid();
+        var num = Number(token);
+        if (!isFinite(num)) invalid();
+        return num;
+    }
+    var result = value();
+    skip();
+    if (at !== data.length) invalid();
+    return result;
+}
