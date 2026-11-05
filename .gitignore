@@ -26,3 +26,9 @@ scene/stabilize.json
 .DS_Store
 Thumbs.db
 *.aep Logs/
+
+# Reproducible examples: user inputs and generated media stay local
+inputs/
+local-runs/
+examples/**/heights/
+examples/**/lookdev/
