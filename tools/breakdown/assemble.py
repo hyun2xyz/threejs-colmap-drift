@@ -1,4 +1,4 @@
-"""Assemble the v6 live-action breakdown from actual shot-specific passes."""
+"""Assemble the v7 live-action breakdown from actual shot-specific passes."""
 import argparse, hashlib, json, subprocess
 from pathlib import Path
 import cv2
@@ -14,7 +14,7 @@ p.add_argument('--font',type=Path)
 p.add_argument('--stills',nargs='*',type=float)
 a=p.parse_args();OUT=a.output.resolve();OUT.mkdir(parents=True,exist_ok=True)
 S=json.loads(a.spec.read_text());N=495
-if S['version']!=6 or S['size']!=[1080,1350] or S['fps']!=[30,1]:raise ValueError('This reference assembler implements the v6 1080x1350/30fps specification')
+if S['version']!=7 or S['size']!=[1080,1350] or S['fps']!=[30,1]:raise ValueError('This reference assembler implements the v7 1080x1350/30fps specification')
 fonts=[a.font] if a.font else [Path('/System/Library/Fonts/Helvetica.ttc'),Path('C:/Windows/Fonts/arial.ttf'),Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')]
 font_path=next((p for p in fonts if p and p.is_file()),None)
 if font_path is None:raise ValueError('Supply --font with a valid Helvetica or Arial font file')
@@ -143,14 +143,14 @@ if a.stills is not None:
     for sec in a.stills:
         i=round(sec*30);im,rec=frame_at(i);cv2.imwrite(str(OUT/'stills'/f'look_{i:04}.png'),im[:,:,::-1]);print(dict(frame=i,stage=rec['stage']))
 else:
-    out=OUT/'01_Water_Breakdown_Final_v6_1080x1350.mp4'
+    out=OUT/'01_Water_Breakdown_Final_v7_1080x1350.mp4'
     if out.exists():raise RuntimeError('Preserving existing final movie')
     enc=subprocess.Popen(['ffmpeg','-v','error','-n','-f','rawvideo','-pix_fmt','rgb24','-s','1080x1350','-r','30','-i','-','-an','-vf','scale=in_range=pc:out_range=tv:out_color_matrix=bt709','-c:v','libx264','-crf','17','-preset','medium','-threads','4','-pix_fmt','yuv420p','-color_primaries','bt709','-color_trc','bt709','-colorspace','bt709','-color_range','tv','-movflags','+faststart',str(out)],stdin=subprocess.PIPE)
     edl=[]
     for i in range(N):
         im,rec=frame_at(i);enc.stdin.write(np.ascontiguousarray(im).tobytes());edl.append(rec)
         if i%30==15 or i in [0,180,188,240,340,344,345,374,375,494]:cv2.imwrite(str(OUT/'stills'/f'frame_{i:04}.jpg'),im[:,:,::-1])
-        if i%120==0:print(f'v6 {i}/{N}',flush=True)
+        if i%120==0:print(f'v7 {i}/{N}',flush=True)
     enc.stdin.close();assert enc.wait()==0
     save(OUT/'edit-decision-list.json',edl);save(OUT/'layout-bounds.json',bounds);save(OUT/'style.json',S)
     save(OUT/'state.json',dict(stage='rendered_needs_review',output=str(out),frames=N,size=[1080,1350],fps=[30,1],next='Verify actual combined tracking/grid, extended duration, direct pointcloud-to-SPH, rectangular stationary captions, equal leading and full playback'))

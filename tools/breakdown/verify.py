@@ -4,12 +4,13 @@ from pathlib import Path
 import cv2,numpy as np
 
 p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);a=p.parse_args();d=a.output
-v=d/'01_Water_Breakdown_Final_v6_1080x1350.mp4'
+v=d/'01_Water_Breakdown_Final_v7_1080x1350.mp4'
 edl=json.loads((d/'edit-decision-list.json').read_text());boxes=json.loads((d/'layout-bounds.json').read_text())
 probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(v)]));s=probe['streams'][0]
 checks={'format':s['width']==1080 and s['height']==1350 and s['r_frame_rate']=='30/1' and abs(float(probe['format']['duration'])-16.5)<.001,
         '495_frame_edl':len(edl)==495 and [r['output_frame'] for r in edl]==list(range(495)),
         'rectangular_static_21px_captions':all(b['shape']=='sharp white rectangle' and b['font_size']==21 and b['rect'][3]==24 and not b['floating'] for row in boxes.values() for b in row),
+        'approved_footer_text':all([b['text'] for b in row if b['role']=='footer']==['Only an LLM + Using My Custom Skills (Colmap + OpenGL, etc.)','See Caption for Details!'] for row in boxes.values()),
         'zero_glyph_motion':all(not any(x for line in r['footer_glyph_y_offsets'] for x in line) for r in edl),
         'combined_tracking_three_seconds':all(r.get('combined_visible') and r['wipe_progress']==0 for r in edl[90:180]),
         'direct_cloud_to_particles':edl[240]['views']==['pointcloud','particles'],

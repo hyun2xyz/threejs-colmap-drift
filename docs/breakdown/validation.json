@@ -12,7 +12,7 @@
     "smooth_motion_no_frame_jitter": true,
     "all_rows_equal_24px_height": true,
     "all_captions_static": true,
-    "footer_lowercase_colmap": true,
+    "footer_Colmap_and_My": true,
     "rectangular_caption_bounds_safe": true,
     "footer_equal_24px_margins": true,
     "footer_and_steps_27px_leading": true,
@@ -33,12 +33,12 @@
     "no_blank_picture": true,
     "white_wipe_edge_present_in_encoded_movie": true,
     "decoded_hold_static": true,
-    "v5_edit_and_source_frames_unchanged": true
+    "v6_edit_and_source_frames_unchanged": true
   },
   "frames": 495,
   "duration_seconds": 16.5,
-  "minimum_white_edge_rgb": 242.76111111111112,
-  "maximum_hold_difference": 0.02247427962720394,
+  "minimum_white_edge_rgb": 242.86888888888888,
+  "maximum_hold_difference": 0.025054655969142914,
   "shadow_centroid_x": 567.5650595722234,
   "combined_view_evidence": [
     {
@@ -69,11 +69,11 @@
   ],
   "footer_max_displacement": 0.0,
   "footer_max_step": 0.0,
-  "sha256": "c13254eeeb36748207a943dd6e00a1b2d71fd4e9fd00143ebf060630281c87ab",
-  "bytes": 14301200,
-  "reviewed_at": "2026-11-06T05:23:43.642914+00:00",
+  "sha256": "9963f821bb072e202f97d1ca90b7c37f271d057e65bb575ae119605b3a1c9522",
+  "bytes": 14357558,
+  "reviewed_at": "2026-11-06T05:36:01.618712+00:00",
   "full_playback_endpoint_verified": false,
-  "filename": "01_Water_Breakdown_Final_v6_1080x1350.mp4",
+  "filename": "01_Water_Breakdown_Final_v7_1080x1350.mp4",
   "size": [
     1080,
     1350
@@ -83,7 +83,7 @@
     1
   ],
   "portable_assembler_check": true,
-  "review_limit": "All 495 frames decoded; representative start/middle/end and transition frames visually inspected. Real-time playback endpoint not independently confirmed for this caption-only revision.",
+  "review_limit": "All 495 frames decoded; representative frames visually inspected. Real-time playback endpoint not independently confirmed for this wording-only revision.",
   "license_rechecked": "2026-11-06",
   "sources": {
     "video": "https://www.pexels.com/video/drone-video-of-the-interior-of-an-abandoned-building-13939575/",

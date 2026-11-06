@@ -1,4 +1,4 @@
-# 실사 VFX 브레이크다운 제작 규칙 — 최종 v6
+# 실사 VFX 브레이크다운 제작 규칙 — 최종 v7
 
 2026-11-06 사용자 수정 지시를 반영한 **실사 합성 브레이크다운**의 재현 기준이다. 문장 주변 구름·원형·붓 모양 배경과 글자 유영은 폐기했다. 모든 캡션은 **고정된 흰 직사각형**이다.
 
@@ -54,10 +54,10 @@
 
 우측 하단은 **각 줄의 흰 박스 오른쪽을 x=1056에 맞춘다.** 오른쪽 여백과 마지막 줄 하단 여백은 실제 영상 사각형 기준으로 각각 24px이다. 단일 화면의 마지막 박스는 y=931..954, 첫 줄은 y=904..927이다. 비교 화면은 아래 원본 사각형의 바닥 y=1296을 기준으로 마지막 줄 y=1248, 첫 줄 y=1221이다. 캔버스 바닥이나 글자 잉크 끝을 기준으로 삼지 않는다.
 
-하단 문구는 정확히 다음 두 줄이다. `colmap`은 소문자, `OpenGL` 표기는 유지한다.
+하단 문구는 정확히 다음 두 줄이다. `Colmap`은 첫 글자 C만 대문자, `OpenGL` 표기는 유지한다.
 
 ```text
-Only an LLM + Using Custom Skills (colmap + OpenGL, etc.)
+Only an LLM + Using My Custom Skills (Colmap + OpenGL, etc.)
 See Caption for Details!
 ```
 
@@ -141,7 +141,7 @@ python tools/breakdown/assemble.py \
 python tools/breakdown/verify.py --output /path/to/new-breakdown
 ```
 
-전체 출력은 기존 최종 MP4가 있으면 중단한다. 재수정은 새 폴더에서 한다. 결과물은 `01_Water_Breakdown_Final_v6_1080x1350.mp4`, `style.json`, `edit-decision-list.json`, `layout-bounds.json`, 프리뷰다. 폰트를 생략하면 설치된 Helvetica/Arial/DejaVu Sans를 순서대로 찾으며 실제 사용 경로를 출력 설정에 기록한다. 다른 글꼴이면 반드시 폭·줄맞춤을 재검수한다.
+전체 출력은 기존 최종 MP4가 있으면 중단한다. 재수정은 새 폴더에서 한다. 결과물은 `01_Water_Breakdown_Final_v7_1080x1350.mp4`, `style.json`, `edit-decision-list.json`, `layout-bounds.json`, 프리뷰다. 폰트를 생략하면 설치된 Helvetica/Arial/DejaVu Sans를 순서대로 찾으며 실제 사용 경로를 출력 설정에 기록한다. 다른 글꼴이면 반드시 폭·줄맞춤을 재검수한다.
 
 ## 7. 완료 판정
 
@@ -160,7 +160,7 @@ python tools/breakdown/verify.py --output /path/to/new-breakdown
 
 ![최종 편집 타임라인](reference-timeline.jpg)
 
-참고 이미지는 이 규칙으로 만든 v6 영상에서 추출한 축소 프레임이다. 공개 저장소에는 원본 전체 영상·개인 레퍼런스 영상·대용량 캐시를 포함하지 않는다.
+참고 이미지는 이 규칙으로 만든 v7 영상에서 추출한 축소 프레임이다. 공개 저장소에는 원본 전체 영상·개인 레퍼런스 영상·대용량 캐시를 포함하지 않는다.
 
 - 실사 원본: **Florian Delée / Pexels**, [abandoned building drone video 13939575](https://www.pexels.com/video/drone-video-of-the-interior-of-an-abandoned-building-13939575/), [Pexels License](https://www.pexels.com/license/). 무료 사용·수정이 가능한 라이선스이며 CC0라고 표기하지 않는다.
 - 조명: **Sergej Majboroda / Poly Haven**, [Abandoned Factory Canteen 01](https://polyhaven.com/a/abandoned_factory_canteen_01), [CC0](https://polyhaven.com/license/).

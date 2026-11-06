@@ -1,5 +1,5 @@
 {
-  "reference": "Final live-action breakdown v6; standalone modeling tests are not the edit template.",
+  "reference": "Final live-action breakdown v7; standalone modeling tests are not the edit template.",
   "size": [
     1080,
     1350
@@ -57,7 +57,7 @@
   },
   "footer": {
     "lines": [
-      "Only an LLM + Using Custom Skills (colmap + OpenGL, etc.)",
+      "Only an LLM + Using My Custom Skills (Colmap + OpenGL, etc.)",
       "See Caption for Details!"
     ],
     "font_size": 21,
@@ -126,7 +126,7 @@
     "04 HDRI / REFRACTION",
     "05 SHADOW / COMPOSITE"
   ],
-  "version": 6,
+  "version": 7,
   "continuous_breakdown": {
     "start_frame": 240,
     "source_fps": [
@@ -187,6 +187,7 @@
     "per-glyph circles",
     "organic cloud/brush backgrounds",
     "floating or jittering caption glyphs",
-    "standalone ground-only process stage"
+    "standalone ground-only process stage",
+    "v6 footer: lowercase colmap and missing My"
   ]
 }
