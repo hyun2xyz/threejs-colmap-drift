@@ -1,0 +1,94 @@
+{
+  "pass_numerical": true,
+  "visual_review": "representative_frames_passed",
+  "checks": {
+    "no_original_plate_process_step": true,
+    "camera_is_step_01": true,
+    "combined_tracking_and_grid_held_three_seconds": true,
+    "no_separate_ground_stage": true,
+    "pointcloud_directly_to_SPH": true,
+    "uniform_21px_rectangular_captions": true,
+    "all_glyph_offsets_zero": true,
+    "smooth_motion_no_frame_jitter": true,
+    "all_rows_equal_24px_height": true,
+    "all_captions_static": true,
+    "footer_lowercase_colmap": true,
+    "rectangular_caption_bounds_safe": true,
+    "footer_equal_24px_margins": true,
+    "footer_and_steps_27px_leading": true,
+    "continuous_process_clock": true,
+    "process_wipe_same_source_frames": true,
+    "all_six_wipes_RTL_linear": true,
+    "result_wipes_to_frame_zero": true,
+    "holds_first_frame_for_one_second": true,
+    "full_result_replay_from_frame_zero": true,
+    "ground_yaw_10_degrees": true,
+    "combined_pass_true_same_camera_frame": true,
+    "markers_and_grid_visible_in_same_frames": true,
+    "96_native_OpenGL_final_frames": true,
+    "ring_shadow_cast_away_from_left_light": true,
+    "shadow_texture_not_clipped": true,
+    "all_495_frames_decode": true,
+    "1080x1350_30fps_16p5seconds": true,
+    "no_blank_picture": true,
+    "white_wipe_edge_present_in_encoded_movie": true,
+    "decoded_hold_static": true,
+    "v5_edit_and_source_frames_unchanged": true
+  },
+  "frames": 495,
+  "duration_seconds": 16.5,
+  "minimum_white_edge_rgb": 242.76111111111112,
+  "maximum_hold_difference": 0.02247427962720394,
+  "shadow_centroid_x": 567.5650595722234,
+  "combined_view_evidence": [
+    {
+      "frame": 1,
+      "green_marker_pixels": 700,
+      "gold_grid_pixels": 553
+    },
+    {
+      "frame": 24,
+      "green_marker_pixels": 724,
+      "gold_grid_pixels": 971
+    },
+    {
+      "frame": 48,
+      "green_marker_pixels": 724,
+      "gold_grid_pixels": 1068
+    },
+    {
+      "frame": 72,
+      "green_marker_pixels": 618,
+      "gold_grid_pixels": 955
+    },
+    {
+      "frame": 79,
+      "green_marker_pixels": 440,
+      "gold_grid_pixels": 406
+    }
+  ],
+  "footer_max_displacement": 0.0,
+  "footer_max_step": 0.0,
+  "sha256": "c13254eeeb36748207a943dd6e00a1b2d71fd4e9fd00143ebf060630281c87ab",
+  "bytes": 14301200,
+  "reviewed_at": "2026-11-06T05:23:43.642914+00:00",
+  "full_playback_endpoint_verified": false,
+  "filename": "01_Water_Breakdown_Final_v6_1080x1350.mp4",
+  "size": [
+    1080,
+    1350
+  ],
+  "fps": [
+    30,
+    1
+  ],
+  "portable_assembler_check": true,
+  "review_limit": "All 495 frames decoded; representative start/middle/end and transition frames visually inspected. Real-time playback endpoint not independently confirmed for this caption-only revision.",
+  "license_rechecked": "2026-11-06",
+  "sources": {
+    "video": "https://www.pexels.com/video/drone-video-of-the-interior-of-an-abandoned-building-13939575/",
+    "video_license": "https://www.pexels.com/license/",
+    "hdri": "https://polyhaven.com/a/abandoned_factory_canteen_01",
+    "hdri_license": "https://polyhaven.com/license/"
+  }
+}

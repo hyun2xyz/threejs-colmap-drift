@@ -1,0 +1,19 @@
+{
+  "description": "Replace these relative paths with actual shot-specific passes. Every input has 96 frames at 24 fps, 1280x720.",
+  "width": 1280,
+  "height": 720,
+  "frames": 96,
+  "fps": [
+    24,
+    1
+  ],
+  "passes": {
+    "original": "passes/original.mp4",
+    "result": "passes/result.mp4",
+    "tracking_ground": "passes/tracking_ground.mp4",
+    "pointcloud": "passes/pointcloud.mp4",
+    "particles": "passes/particles.mp4",
+    "wireframe": "passes/wireframe.mp4",
+    "refraction": "passes/refraction.mp4"
+  }
+}

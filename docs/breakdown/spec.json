@@ -1,0 +1,192 @@
+{
+  "reference": "Final live-action breakdown v6; standalone modeling tests are not the edit template.",
+  "size": [
+    1080,
+    1350
+  ],
+  "fps": [
+    30,
+    1
+  ],
+  "duration": 16.5,
+  "background": "#fcfefd",
+  "picture": {
+    "single": [
+      0,
+      371,
+      1080,
+      608
+    ],
+    "comparison_top": [
+      0,
+      55,
+      1080,
+      608
+    ],
+    "comparison_bottom": [
+      0,
+      688,
+      1080,
+      608
+    ]
+  },
+  "labels": {
+    "font": "Helvetica / Arial",
+    "title_size": 21,
+    "step_size": 21,
+    "title_inset": [
+      24,
+      24
+    ],
+    "step_inset": [
+      40,
+      51
+    ],
+    "line_height": 27,
+    "padding": [
+      3,
+      2
+    ],
+    "completed_color": "#7d807e",
+    "active_color": "#000000",
+    "box": "#ffffff",
+    "extra_notes": false,
+    "box_style": "sharp white rectangle",
+    "box_height": 24,
+    "baseline_offset": 18
+  },
+  "footer": {
+    "lines": [
+      "Only an LLM + Using Custom Skills (colmap + OpenGL, etc.)",
+      "See Caption for Details!"
+    ],
+    "font_size": 21,
+    "right": 24,
+    "bottom": 24,
+    "comparison_bottom": 24,
+    "line_height": 27,
+    "box_height": 24,
+    "motion": {
+      "type": "none",
+      "amplitude_max_px": 0
+    },
+    "visible_row_gap": 3
+  },
+  "timeline": [
+    {
+      "start": 0,
+      "end": 3,
+      "stage": "comparison"
+    },
+    {
+      "start": 3,
+      "end": 8,
+      "stage": "camera"
+    },
+    {
+      "start": 8,
+      "end": 8.8,
+      "stage": "particles"
+    },
+    {
+      "start": 8.8,
+      "end": 9.6,
+      "stage": "wireframe"
+    },
+    {
+      "start": 9.6,
+      "end": 10.4,
+      "stage": "refraction"
+    },
+    {
+      "start": 10.4,
+      "end": 11.2,
+      "stage": "shadow"
+    },
+    {
+      "start": 11.2,
+      "end": 11.5,
+      "stage": "result_wipe"
+    },
+    {
+      "start": 11.5,
+      "end": 12.5,
+      "stage": "result_hold"
+    },
+    {
+      "start": 12.5,
+      "end": 16.5,
+      "stage": "result"
+    }
+  ],
+  "step_labels": [
+    "01 COLMAP CAMERA TRACK + WORLD ALIGN",
+    "02 SPH PARTICLE SIM",
+    "03 SURFACE / WIREFRAME",
+    "04 HDRI / REFRACTION",
+    "05 SHADOW / COMPOSITE"
+  ],
+  "version": 6,
+  "continuous_breakdown": {
+    "start_frame": 240,
+    "source_fps": [
+      24,
+      1
+    ],
+    "playback_fps": [
+      30,
+      1
+    ],
+    "wipe_starts_relative_frames": [
+      0,
+      24,
+      48,
+      72
+    ],
+    "wipe_duration_frames": 9,
+    "direction": "right to left",
+    "white_edge_width": 2,
+    "result_wipe_frames": [
+      336,
+      344
+    ],
+    "result_incoming_source_frame": 0,
+    "result_hold_frames": [
+      345,
+      374
+    ],
+    "result_playback_frames": [
+      375,
+      494
+    ],
+    "grid_yaw_degrees": 10,
+    "camera_tracking_duration_before_wipe": 3.0,
+    "camera_pointcloud_wipe_duration": 0.3,
+    "plate_gain": 1.0
+  },
+  "merged_process_stages": {
+    "camera": 0,
+    "particles": 1,
+    "wireframe": 2,
+    "refraction": 3,
+    "shadow": 4
+  },
+  "camera_sequence": {
+    "combined_tracking_and_ground_seconds": [
+      3,
+      6
+    ],
+    "wipe_to_pointcloud_seconds": [
+      6,
+      6.3
+    ],
+    "pointcloud_until_seconds": 8,
+    "next": "SPH particles directly; no separate ground-only or original-plate stage"
+  },
+  "supersedes": [
+    "per-glyph circles",
+    "organic cloud/brush backgrounds",
+    "floating or jittering caption glyphs",
+    "standalone ground-only process stage"
+  ]
+}
